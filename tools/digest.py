@@ -71,6 +71,33 @@ def section(t, univ):
     if m:
         nxt = re.search(r'【\s*(' + '|'.join(others) + r')\s*】', t[m.end():])
         return t[m.start(): m.end() + (nxt.start() if nxt else len(t))]
+    # 立命館の入試講評は「民 法」のように科目名だけの行が見出し。
+    # 「公 法 (憲 法)」「訴訟法オプション試験(民事訴訟法)」の形もある。
+    head = re.compile(r'^\s*[<＜]?\s*('
+                      r'公\s*法\s*\([^)]*\)'
+                      r'|訴\s*訟\s*法\s*オ\s*プ\s*シ\s*ョ\s*ン\s*試\s*験\s*\([^)]*\)'
+                      r'|' + '|'.join(r'\s*'.join(x) for x in SUBJECTS_ALL) + r')\s*[>＞]?\s*$')
+    marks, pos = [], 0
+    for line in t.split('\n'):
+        mm = head.match(line)
+        if mm:
+            name = re.sub(r'\s', '', mm.group(1))
+            km = re.fullmatch(r'(?:公法|訴訟法オプション試験)\(([^)]+)\)', name)
+            if km:
+                name = km.group(1)
+            marks.append((pos, name, pos + len(line) + 1))
+        pos += len(line) + 1
+    if marks and any(n == SUBJECT for _, n, _ in marks):
+        parts = []
+        for i, (st, name, after) in enumerate(marks):
+            if name != SUBJECT:
+                continue
+            end = marks[i + 1][0] if i + 1 < len(marks) else len(t)
+            seg = t[after:end].strip()
+            if jp_len(seg) > 50:
+                parts.append(seg)
+        if parts:
+            return '\n\n'.join(parts)
     return t          # 単独 PDF（同志社など）
 
 

@@ -17,7 +17,8 @@ SUBJECT = {
     # 同志社・中央は表の科目セルの文字列で拾う
     'cell': '民事訴訟法',
     # 立命館はファイル名の科目キー（民法=minpo, 商法=shoho, …）。無い科目は None
-    'ritsumei_key': None,
+    # 立命館は2018・2019年度だけ「訴訟法オプション試験」（民訴・刑訴の合冊）を出している
+    'ritsumei_key': 'option',
     # 関学はリンク文字「<科目>問題・解説（2026A日程）」の <科目>。無い科目は None
     'kwansei_label': None,
     # 慶應は合冊 PDF のリンク文字に含まれる科目名
@@ -117,7 +118,9 @@ def ritsumei(h):
             'course': '法学既修者（B方式）',
             'mondai': B + u, 'kaisetsu': comment.get((y, t)), 'kaitou': None,
             'kaisetsuLabel': '入試講評',
-            'kaisetsuNote': f"全科目まとめの講評。{SUBJECT['name']}の節を参照",
+            'kaisetsuNote': f"全科目まとめの講評。「訴訟法オプション試験（{SUBJECT['name']}）」の節を参照",
+            'mondaiNote': '訴訟法オプション試験（民事訴訟法・刑事訴訟法の合冊）。'
+                          f"{SUBJECT['name']}の問題を参照",
         })
     return items
 

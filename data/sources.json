@@ -23,6 +23,10 @@
   "www.keio.ac.jp": {
    "embeddable": false,
    "reason": "xfo"
+  },
+  "www.ritsumei.ac.jp": {
+   "embeddable": true,
+   "reason": null
   }
  },
  "items": [
@@ -432,6 +436,84 @@
    "kaisetsu": null,
    "kaitou": null,
    "kaisetsuLabel": "解説"
+  },
+  {
+   "id": "rit-2018-chuki",
+   "univ": "立命館",
+   "year": 2018,
+   "term": "中期",
+   "course": "法学既修者（B方式）",
+   "mondai": "https://www.ritsumei.ac.jp/lawschool/assets/file/admission/past-18c_option.pdf",
+   "kaisetsu": "https://www.ritsumei.ac.jp/lawschool/assets/file/admission/past-comment2018-c2.pdf",
+   "kaitou": null,
+   "kaisetsuLabel": "入試講評",
+   "kaisetsuNote": "全科目まとめの講評。「訴訟法オプション試験（民事訴訟法）」の節を参照",
+   "mondaiNote": "訴訟法オプション試験（民事訴訟法・刑事訴訟法の合冊）。民事訴訟法の問題を参照"
+  },
+  {
+   "id": "rit-2018-koki",
+   "univ": "立命館",
+   "year": 2018,
+   "term": "後期",
+   "course": "法学既修者（B方式）",
+   "mondai": "https://www.ritsumei.ac.jp/lawschool/assets/file/admission/past-18k_option.pdf",
+   "kaisetsu": "https://www.ritsumei.ac.jp/lawschool/assets/file/admission/past-comment2018-k.pdf",
+   "kaitou": null,
+   "kaisetsuLabel": "入試講評",
+   "kaisetsuNote": "全科目まとめの講評。「訴訟法オプション試験（民事訴訟法）」の節を参照",
+   "mondaiNote": "訴訟法オプション試験（民事訴訟法・刑事訴訟法の合冊）。民事訴訟法の問題を参照"
+  },
+  {
+   "id": "rit-2018-zenki",
+   "univ": "立命館",
+   "year": 2018,
+   "term": "前期",
+   "course": "法学既修者（B方式）",
+   "mondai": "https://www.ritsumei.ac.jp/lawschool/assets/file/admission/past-18z_option.pdf",
+   "kaisetsu": "https://www.ritsumei.ac.jp/lawschool/assets/file/admission/past-comment2018-z.pdf",
+   "kaitou": null,
+   "kaisetsuLabel": "入試講評",
+   "kaisetsuNote": "全科目まとめの講評。「訴訟法オプション試験（民事訴訟法）」の節を参照",
+   "mondaiNote": "訴訟法オプション試験（民事訴訟法・刑事訴訟法の合冊）。民事訴訟法の問題を参照"
+  },
+  {
+   "id": "rit-2019-chuki",
+   "univ": "立命館",
+   "year": 2019,
+   "term": "中期",
+   "course": "法学既修者（B方式）",
+   "mondai": "https://www.ritsumei.ac.jp/lawschool/assets/file/admission/past-19c_option.pdf",
+   "kaisetsu": "https://www.ritsumei.ac.jp/lawschool/assets/file/admission/past-comment2019-c.pdf",
+   "kaitou": null,
+   "kaisetsuLabel": "入試講評",
+   "kaisetsuNote": "全科目まとめの講評。「訴訟法オプション試験（民事訴訟法）」の節を参照",
+   "mondaiNote": "訴訟法オプション試験（民事訴訟法・刑事訴訟法の合冊）。民事訴訟法の問題を参照"
+  },
+  {
+   "id": "rit-2019-koki",
+   "univ": "立命館",
+   "year": 2019,
+   "term": "後期",
+   "course": "法学既修者（B方式）",
+   "mondai": "https://www.ritsumei.ac.jp/lawschool/assets/file/admission/past-19k_option.pdf",
+   "kaisetsu": "https://www.ritsumei.ac.jp/lawschool/assets/file/admission/past-comment2019-k.pdf",
+   "kaitou": null,
+   "kaisetsuLabel": "入試講評",
+   "kaisetsuNote": "全科目まとめの講評。「訴訟法オプション試験（民事訴訟法）」の節を参照",
+   "mondaiNote": "訴訟法オプション試験（民事訴訟法・刑事訴訟法の合冊）。民事訴訟法の問題を参照"
+  },
+  {
+   "id": "rit-2019-zenki",
+   "univ": "立命館",
+   "year": 2019,
+   "term": "前期",
+   "course": "法学既修者（B方式）",
+   "mondai": "https://www.ritsumei.ac.jp/lawschool/assets/file/admission/past-19z_option.pdf",
+   "kaisetsu": "https://www.ritsumei.ac.jp/lawschool/assets/file/admission/past-comment2019-z.pdf",
+   "kaitou": null,
+   "kaisetsuLabel": "入試講評",
+   "kaisetsuNote": "全科目まとめの講評。「訴訟法オプション試験（民事訴訟法）」の節を参照",
+   "mondaiNote": "訴訟法オプション試験（民事訴訟法・刑事訴訟法の合冊）。民事訴訟法の問題を参照"
   },
   {
    "id": "kei-2026-honshi",
