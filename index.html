@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>民事訴訟法過去問帳</title>
+<meta name="description" content="同志社・慶應・中央の法科大学院 既修者入試（民事訴訟法）の過去問を、民訴の単元ごとに引ける学習帳。問題と公式の解説をそのまま開けます。">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="icon-16.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=2">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1d2026">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="民訴">
+<meta property="og:type" content="website">
+<meta property="og:title" content="民事訴訟法過去問帳">
+<meta property="og:description" content="ロー入試（既修者）の民事訴訟法の過去問を、単元ごとに引く。同志社・慶應・中央の51回を収録。問題と解説は各大学の公式ページをそのまま開きます。">
+<meta property="og:url" content="https://law-kakomon.github.io/minso-kakomon/">
+<meta property="og:image" content="https://law-kakomon.github.io/minso-kakomon/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --bg:#f7f6f3; --panel:#ffffff; --fg:#1f2328; --muted:#6b7280; --border:#e2e0da;
+  --accent:#4a5fa5; --accent-weak:#eef1f9; --mark:#fde68a;
+  --old:#8a6d3b; --old-bg:#fdf3df;
+  --shadow:0 8px 24px rgba(0,0,0,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#15171b; --panel:#1d2026; --fg:#e6e4df; --muted:#9aa0a8; --border:#33373f;
+    --accent:#8ea2d8; --accent-weak:#262c3a; --mark:#7a5d00;
+    --old:#d9bd84; --old-bg:#3a3118;
+    --shadow:0 8px 24px rgba(0,0,0,.5);
+  }
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;
+  display:flex; flex-direction:column; overflow:hidden; font-size:14px;
+}
+button,input,select{font-family:inherit; color:inherit; font-size:inherit}
+
+/* ---------- header ---------- */
+header{
+  flex:0 0 auto; display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  padding:8px 14px; border-bottom:1px solid var(--border); background:var(--panel);
+}
+#brand{font-weight:700; font-size:15px; letter-spacing:.05em; white-space:nowrap}
+#brand small{font-weight:400; color:var(--muted); margin-left:7px; font-size:11px; letter-spacing:0}
+.chips{display:flex; gap:4px; flex-wrap:wrap}
+.chips button{
+  border:1px solid var(--border); background:transparent; border-radius:7px;
+  padding:4px 11px; cursor:pointer; line-height:1.5;
+}
+.chips button:hover{background:var(--accent-weak)}
+.chips button.on{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600}
+#q{
+  border:1px solid var(--border); background:var(--bg); border-radius:7px;
+  padding:5px 10px; width:220px; min-width:120px;
+}
+#q:focus{outline:2px solid var(--accent-weak); border-color:var(--accent)}
+.spacer{flex:1}
+#count{color:var(--muted); font-size:12px; white-space:nowrap}
+#aboutBtn{border:1px solid var(--border); background:transparent; border-radius:7px;
+          padding:4px 11px; cursor:pointer; color:var(--muted); white-space:nowrap}
+#aboutBtn:hover{background:var(--accent-weak); color:var(--fg)}
+
+/* ---------- layout ---------- */
+main{flex:1 1 auto; display:flex; min-height:0}
+#units{
+  flex:0 0 232px; overflow-y:auto; border-right:1px solid var(--border);
+  background:var(--panel); padding:10px 0 40px;
+}
+#list{
+  flex:0 0 330px; overflow-y:auto; border-right:1px solid var(--border);
+  padding:8px 10px 40px;
+}
+#detail{flex:1 1 auto; overflow-y:auto; background:var(--panel); padding:16px 20px 40px; min-width:0}
+
+/* ---------- 単元ツリー ---------- */
+.grp{margin:0 0 4px}
+.grp>h3{
+  margin:10px 12px 4px; font-size:11px; font-weight:700; color:var(--muted);
+  letter-spacing:.08em;
+}
+.unit{
+  display:flex; align-items:baseline; gap:6px; width:100%; text-align:left;
+  border:0; background:transparent; padding:5px 12px 5px 16px; cursor:pointer;
+  border-radius:0; line-height:1.4;
+}
+.unit:hover{background:var(--accent-weak)}
+.unit.on{background:var(--accent); color:#fff; font-weight:600}
+.unit .n{margin-left:auto; font-size:11px; color:var(--muted); font-variant-numeric:tabular-nums}
+.unit.on .n{color:#fff; opacity:.85}
+.unit.zero{opacity:.4}
+.unit.top{font-weight:600; padding-left:12px}
+
+/* ---------- 一覧 ---------- */
+.card{
+  border:1px solid var(--border); background:var(--panel); border-radius:9px;
+  padding:9px 11px; margin-bottom:7px; cursor:pointer;
+}
+.card:hover{border-color:var(--accent)}
+.card.on{border-color:var(--accent); box-shadow:0 0 0 1px var(--accent) inset}
+.card .ttl{font-weight:600; display:flex; align-items:center; gap:6px; flex-wrap:wrap}
+.card .tp{color:var(--muted); font-size:12px; margin-top:3px; line-height:1.5}
+.badge{
+  font-size:10px; font-weight:600; border-radius:4px; padding:1px 5px;
+  border:1px solid var(--border); color:var(--muted); letter-spacing:.02em;
+}
+.badge.old{background:var(--old-bg); color:var(--old); border-color:transparent}
+.badge.done{background:var(--accent-weak); color:var(--accent); border-color:transparent}
+.badge.uncls{background:transparent}
+.empty{color:var(--muted); padding:20px 4px; line-height:1.8}
+.about{max-width:48em; line-height:1.85}
+.about p{margin:0 0 10px}
+.about code{background:var(--accent-weak); border-radius:4px; padding:1px 5px; font-size:12.5px}
+
+/* ---------- 詳細 ---------- */
+#detail h2{margin:0 0 2px; font-size:20px; display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+#detail .meta{color:var(--muted); font-size:12.5px; margin-bottom:14px}
+.row{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; align-items:center}
+.btn{
+  border:1px solid var(--border); background:var(--bg); border-radius:8px;
+  padding:7px 14px; cursor:pointer; text-decoration:none; color:inherit;
+  display:inline-flex; align-items:center; gap:5px; line-height:1.4;
+}
+.btn:hover{background:var(--accent-weak); border-color:var(--accent)}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600}
+.btn.primary:hover{opacity:.9}
+.btn[aria-disabled="true"]{opacity:.4; pointer-events:none}
+section.blk{margin:0 0 16px}
+section.blk h4{
+  margin:0 0 6px; font-size:11.5px; font-weight:700; color:var(--muted); letter-spacing:.08em;
+}
+ul.topics{margin:0; padding-left:1.2em; line-height:1.9}
+.tagrow{display:flex; gap:5px; flex-wrap:wrap}
+.tag{
+  border:1px solid var(--border); border-radius:999px; padding:2px 10px; font-size:12px;
+  background:transparent; cursor:pointer; line-height:1.6;
+}
+.tag:hover{background:var(--accent-weak); border-color:var(--accent)}
+.tag.plain{cursor:default}
+.tag.plain:hover{background:transparent; border-color:var(--border)}
+.note{
+  color:var(--muted); font-size:12.5px; line-height:1.7;
+  border-left:3px solid var(--border); padding:2px 0 2px 10px; margin:10px 0;
+}
+#viewer{
+  width:100%; height:min(78vh,900px); border:1px solid var(--border); border-radius:9px;
+  background:var(--bg);
+}
+#tabsPdf{display:flex; gap:4px; flex-wrap:wrap; margin-bottom:8px}
+label.done{
+  display:inline-flex; align-items:center; gap:6px; cursor:pointer; color:var(--muted);
+  margin-left:auto; white-space:nowrap;
+}
+.backbtn{display:none}
+
+/* ---------- 狭い画面 ---------- */
+@media (max-width:980px){
+  #units{flex:0 0 190px}
+  #list{flex:0 0 250px}
+}
+@media (max-width:760px){
+  main{position:relative}
+  #units{position:absolute; inset:0 auto 0 0; width:78%; max-width:300px; z-index:3;
+         box-shadow:var(--shadow); transform:translateX(-102%); transition:transform .18s}
+  body.nav #units{transform:none}
+  #list{flex:1 1 auto; border-right:0}
+  #detail{position:absolute; inset:0; z-index:2; transform:translateX(102%); transition:transform .18s}
+  body.open #detail{transform:none}
+  .backbtn{display:inline-flex}
+  #navbtn{display:inline-flex !important}
+  #viewer{height:70vh}
+}
+#navbtn{display:none; border:1px solid var(--border); background:transparent;
+        border-radius:7px; padding:4px 10px; cursor:pointer}
+#scrim{display:none; position:absolute; inset:0; background:rgba(0,0,0,.3); z-index:2}
+body.nav #scrim{display:block}
+</style>
+</head>
+<body>
+
+<header>
+  <button id="navbtn" aria-label="単元を開く">単元</button>
+  <div id="brand">民事訴訟法過去問帳<small>ロー入試 既修者・民訴／単元別</small></div>
+  <div class="chips" id="univChips"></div>
+  <input id="q" type="search" placeholder="論点・条文番号・判例で検索" autocomplete="off">
+  <div class="spacer"></div>
+  <button id="aboutBtn">このサイトについて</button>
+  <div id="count"></div>
+</header>
+
+<main>
+  <nav id="units"></nav>
+  <div id="list"></div>
+  <article id="detail"></article>
+  <div id="scrim"></div>
+</main>
+
+<script id="kakomon-data" type="application/json">{"generated":true,"sources":{"同志社":"https://law-school.doshisha.ac.jp/entrance_ex/question/","立命館":"https://www.ritsumei.ac.jp/lawschool/admission/past.html/","慶應":"https://www.ls.keio.ac.jp/nyushi/examination.html","関学":"https://www.kwansei.ac.jp/lawschool/admissions/kakomon/","中央":"https://www.chuo-u.ac.jp/academics/pro_graduateschool/law/orientation/selection/past/"},"taxonomy":[{"name":"裁判所","count":5,"subs":[{"name":"管轄・移送","key":"裁判所/管轄・移送","count":5},{"name":"除斥・忌避","key":"裁判所/除斥・忌避","count":0}]},{"name":"当事者","count":16,"subs":[{"name":"当事者能力・訴訟能力","key":"当事者/当事者能力・訴訟能力","count":5},{"name":"当事者適格・訴訟担当","key":"当事者/当事者適格・訴訟担当","count":7},{"name":"訴訟代理","key":"当事者/訴訟代理","count":4}]},{"name":"訴えの提起","count":29,"subs":[{"name":"訴訟物・訴えの利益","key":"訴えの提起/訴訟物・訴えの利益","count":19},{"name":"処分権主義","key":"訴えの提起/処分権主義","count":5},{"name":"重複訴訟・訴訟係属","key":"訴えの提起/重複訴訟・訴訟係属","count":5},{"name":"訴訟上の信義則","key":"訴えの提起/訴訟上の信義則","count":0}]},{"name":"審理","count":24,"subs":[{"name":"口頭弁論・弁論主義","key":"審理/口頭弁論・弁論主義","count":15},{"name":"争点整理・攻撃防御方法","key":"審理/争点整理・攻撃防御方法","count":6},{"name":"送達・期日・手続の中断","key":"審理/送達・期日・手続の中断","count":3}]},{"name":"証拠","count":12,"subs":[{"name":"証拠総則・自由心証主義","key":"証拠/証拠総則・自由心証主義","count":1},{"name":"証明責任","key":"証拠/証明責任","count":5},{"name":"証人・当事者尋問・鑑定","key":"証拠/証人・当事者尋問・鑑定","count":1},{"name":"書証・文書提出命令","key":"証拠/書証・文書提出命令","count":5}]},{"name":"訴訟の終了","count":31,"subs":[{"name":"判決","key":"訴訟の終了/判決","count":4},{"name":"既判力","key":"訴訟の終了/既判力","count":23},{"name":"取下げ・和解・放棄認諾","key":"訴訟の終了/取下げ・和解・放棄認諾","count":4}]},{"name":"複数請求・多数当事者","count":22,"subs":[{"name":"請求の併合・訴えの変更・反訴","key":"複数請求・多数当事者/請求の併合・訴えの変更・反訴","count":4},{"name":"共同訴訟","key":"複数請求・多数当事者/共同訴訟","count":8},{"name":"訴訟参加・訴訟告知","key":"複数請求・多数当事者/訴訟参加・訴訟告知","count":9},{"name":"訴訟承継","key":"複数請求・多数当事者/訴訟承継","count":1}]},{"name":"上訴・再審","count":10,"subs":[{"name":"控訴・上告","key":"上訴・再審/控訴・上告","count":9},{"name":"抗告","key":"上訴・再審/抗告","count":0},{"name":"再審","key":"上訴・再審/再審","count":1}]},{"name":"特別手続","count":0,"subs":[{"name":"簡易裁判所・大規模訴訟の特則","key":"特別手続/簡易裁判所・大規模訴訟の特則","count":0},{"name":"少額訴訟・手形小切手訴訟","key":"特別手続/少額訴訟・手形小切手訴訟","count":0},{"name":"督促手続・執行停止","key":"特別手続/督促手続・執行停止","count":0}]}],"items":[{"id":"dos-2027-zenki","univ":"同志社","year":2027,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2027_zenki_mondai_minsoho.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2027_zenki_kaisetsu_minsoho.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2027_zenki_kaitou_minsoho.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["訴えの提起/重複訴訟・訴訟係属","訴えの提起/訴訟物・訴えの利益","訴訟の終了/既判力"],"topics":["二重起訴の禁止（142条）","訴訟上の相殺の抗弁と重複起訴","将来給付の訴えの利益（135条）","既判力の客観的範囲（114条）"],"articles":[114,135,142],"hanrei":["最判平成3年12月17日","最判平成18年4月14日","最判令和2年9月11日","最大判昭和56年12月16日","最判平成24年12月21日"],"classified":true},{"id":"dos-2026-zenki","univ":"同志社","year":2026,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2026_zenki_mondai_minsoho.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2026_zenki_kaisetsu_minsoho.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2026_zenki_kaitou_minsoho.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["訴えの提起/処分権主義","審理/口頭弁論・弁論主義","複数請求・多数当事者/共同訴訟","訴訟の終了/判決"],"topics":["引換給付判決の可否と処分権主義（246条）","一部認容判決","権利抗弁と主張共通の原則","共同訴訟の要件（38条）","共同訴訟人独立の原則（39条・41条）"],"articles":[38,41,246],"hanrei":[],"classified":true},{"id":"dos-2026-koki","univ":"同志社","year":2026,"term":"後期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2026koki_mondai_minjisosho.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2026koki_kaisetsu_minjisosho.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2026koki_kaitou_minjisosho.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["当事者/訴訟代理","訴訟の終了/取下げ・和解・放棄認諾","訴訟の終了/既判力"],"topics":["訴訟代理権の範囲（55条）","訴訟上の和解と代理権","和解調書の効力（267条）","和解に既判力を認めるべきか"],"articles":[55,267],"hanrei":[],"classified":true},{"id":"kei-2026-honshi","univ":"慶應","year":2026,"term":"本試験","course":"法学既修者コース","mondai":"https://www.keio.ac.jp/files/b10de710644fe51a59cb8e0fa804433e4feeeb759d5a06d92665b526d67a4f00","kaisetsu":"https://www.keio.ac.jp/files/5d2bc1b97adaa723e9762dac8da067c5170963dfb6e9f0bcc0d37f64cc7dd669","kaitou":null,"kaisetsuLabel":"出題趣旨","kaisetsuNote":"全科目まとめの出題趣旨。民事訴訟法の節を参照","mondaiNote":"合冊の試験問題（商法・民事訴訟法・刑事訴訟法）。民事訴訟法の問題を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":"xfo","kaitou":null},"basis":"解説","units":["審理/口頭弁論・弁論主義","訴訟の終了/既判力"],"topics":["弁論主義の主張原則（第1テーゼ）","当事者の主張のない事実を判決の基礎とできるか","既判力"],"articles":[],"hanrei":[],"classified":true},{"id":"chu-2026-ronjutsu","univ":"中央","year":2026,"term":"論述式","course":"法学既修者コース","mondai":"https://www.chuo-u.ac.jp/uploads/2026/03/academics_pro_graduateschool_law_orientation_selection_past_2026_05.pdf","kaisetsu":"https://www.chuo-u.ac.jp/uploads/2026/03/academics_pro_graduateschool_law_orientation_selection_past_2026_07.pdf","kaitou":null,"kaisetsuLabel":"出題の意図","kaisetsuNote":"全科目まとめの「出題の意図及び評価の視点」。民事訴訟法の節を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":"xfo","kaitou":null},"basis":"解説","units":["複数請求・多数当事者/共同訴訟","当事者/当事者適格・訴訟担当"],"topics":["民法上の組合が組合財産に関する訴えを提起する方法","通常共同訴訟か固有必要的共同訴訟か","訴訟共同の必要","選定当事者（30条）"],"articles":[30],"hanrei":["最大判昭和45年11月11日"],"classified":true},{"id":"dos-2025-zenki","univ":"同志社","year":2025,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2025zenki_mondai_minjisosho.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2025zenki_kaisetsu_minjisosho.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2025zenki_kaitou_minjisosho.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["当事者/当事者能力・訴訟能力","当事者/当事者適格・訴訟担当","審理/送達・期日・手続の中断"],"topics":["民法上の組合の当事者能力（29条）","組合をめぐる当事者適格","訴訟手続の中断と受継"],"articles":[29],"hanrei":["最判昭和37年12月18日","最判昭和42年10月19日","最大判昭和45年11月11日"],"classified":true},{"id":"dos-2025-koki","univ":"同志社","year":2025,"term":"後期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2025koki_mondai_minjisosho.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2025koki_kaisetsu_minjisosho.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2025koki_kaitou_minjisosho.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["訴訟の終了/既判力","訴えの提起/訴訟物・訴えの利益","複数請求・多数当事者/訴訟参加・訴訟告知"],"topics":["前訴と後訴の訴訟物の異同","既判力の客観的範囲（114条）","独立当事者参加（47条）"],"articles":[47,114],"hanrei":[],"classified":true},{"id":"kei-2025-honshi","univ":"慶應","year":2025,"term":"本試験","course":"法学既修者コース","mondai":"https://www.keio.ac.jp/files/c3801865e8db470438cff3cf8a83456659ef7f5534e64e841eafd34b92027073","kaisetsu":"https://www.keio.ac.jp/files/6b64898e14f858f6bb1bfacc2717e507b0d72fcdca68411eb3c2c49255b19b96","kaitou":null,"kaisetsuLabel":"出題趣旨","kaisetsuNote":"全科目まとめの出題趣旨。民事訴訟法の節を参照","mondaiNote":"合冊の試験問題（科目名の記載なし）。民事訴訟法の問題を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":"xfo","kaitou":null},"basis":"解説","units":["複数請求・多数当事者/共同訴訟","審理/口頭弁論・弁論主義","上訴・再審/控訴・上告","訴えの提起/訴訟物・訴えの利益"],"topics":["通常共同訴訟における主張","裁判上の自白の意義・成立要件","過失を要件とする場合の主要事実","控訴の利益","明示的一部請求の訴訟物"],"articles":[],"hanrei":[],"classified":true},{"id":"chu-2025-ronjutsu","univ":"中央","year":2025,"term":"論述式","course":"法学既修者コース","mondai":"https://www.chuo-u.ac.jp/uploads/2025/04/academics_pro_graduateschool_law_orientation_selection_past_2025_05.pdf","kaisetsu":"https://www.chuo-u.ac.jp/uploads/2025/04/academics_pro_graduateschool_law_orientation_selection_past_2025_07_20250414.pdf","kaitou":null,"kaisetsuLabel":"出題の意図","kaisetsuNote":"全科目まとめの「出題の意図及び評価の視点」。民事訴訟法の節を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":"xfo","kaitou":null},"basis":"解説","units":["訴えの提起/訴訟物・訴えの利益","複数請求・多数当事者/請求の併合・訴えの変更・反訴","訴えの提起/重複訴訟・訴訟係属"],"topics":["明示的一部請求と残部請求","一部請求の訴訟物","訴えの変更（143条1項）の要件","重複起訴の禁止（142条）"],"articles":[142,143],"hanrei":[],"classified":true},{"id":"dos-2024-zenki","univ":"同志社","year":2024,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2024zenki_mondai_minsosou.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2024zenki_kaisetsu_minsosou.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2024zenki_kaitou_minsosou.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["審理/争点整理・攻撃防御方法","複数請求・多数当事者/訴訟参加・訴訟告知","審理/口頭弁論・弁論主義"],"topics":["弁論準備手続でできる証拠調べ（170条）","弁論主義の第2テーゼ","補助参加の利益（42条）","参加的効力（46条）","訴訟告知（53条）"],"articles":[42,46,53,170],"hanrei":[],"classified":true},{"id":"dos-2024-koki","univ":"同志社","year":2024,"term":"後期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2024koki_mondai_minjisosyouho.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2024koki_kaisetsu_minjisosyo.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2024koki_kaitou_minjisosyouho.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["訴訟の終了/既判力","上訴・再審/控訴・上告"],"topics":["判決理由中の判断と既判力（114条1項）","相殺の抗弁と既判力（114条2項）","控訴審の審判範囲・不利益変更禁止（304条）"],"articles":[114,304],"hanrei":[],"classified":true},{"id":"dos-2024-menjo","univ":"同志社","year":2024,"term":"履修免除","course":"履修免除試験","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2024exempt_mondai_minjisosyouho.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2024_kaisetsu_minjisosyouho.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2024exempt_kaitou_minjisosyouho.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["裁判所/管轄・移送","当事者/訴訟代理","審理/口頭弁論・弁論主義","上訴・再審/控訴・上告","訴えの提起/訴訟物・訴えの利益","複数請求・多数当事者/訴訟参加・訴訟告知","証拠/書証・文書提出命令"],"topics":["○×形式の基礎知識（移送20条・訴訟代理55条・口頭弁論87条・控訴302条・将来給付135条・訴訟引受50条）","二段の推定（228条4項）と形式的証拠力","請求適格・訴えの利益の3基準"],"articles":[20,50,55,87,135,228,302],"hanrei":[],"classified":true},{"id":"kei-2024-honshi","univ":"慶應","year":2024,"term":"本試験","course":"法学既修者コース","mondai":"https://www.keio.ac.jp/files/cdaa2e98a653005a53e40d8d541da5074cf74d52cc4946cbe501ea58294c9264","kaisetsu":"https://www.keio.ac.jp/files/6e718879020f005c6743b1e52b30f0ed58f3b492a7c11d5440fb90b30f3ab6dc","kaitou":null,"kaisetsuLabel":"出題趣旨","kaisetsuNote":"全科目まとめの出題趣旨。民事訴訟法の節を参照","mondaiNote":"合冊の試験問題（商法・民事訴訟法・刑事訴訟法）。民事訴訟法の問題を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":"xfo","kaitou":null},"basis":"解説","units":["訴訟の終了/既判力","訴えの提起/訴訟物・訴えの利益"],"topics":["既判力の客観的範囲（114条1項）と理由中の判断","旧訴訟物理論を前提とした後訴の可否","将来給付の訴え（135条）"],"articles":[114,135],"hanrei":["最判昭和56年12月16日"],"classified":true},{"id":"chu-2024-ronjutsu","univ":"中央","year":2024,"term":"論述式","course":"法学既修者コース","mondai":"https://www.chuo-u.ac.jp/uploads/2024/05/academics_pro_graduateschool_law_orientation_selection_past_2024_05.pdf","kaisetsu":"https://www.chuo-u.ac.jp/uploads/2024/05/academics_pro_graduateschool_law_orientation_selection_past_2024_07.pdf","kaitou":null,"kaisetsuLabel":"出題の意図","kaisetsuNote":"全科目まとめの「出題の意図及び評価の視点」。民事訴訟法の節を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":"xfo","kaitou":null},"basis":"解説","units":["訴えの提起/訴訟物・訴えの利益","複数請求・多数当事者/共同訴訟","複数請求・多数当事者/訴訟参加・訴訟告知","審理/争点整理・攻撃防御方法","訴訟の終了/判決"],"topics":["確認の訴えの利益（給付の訴えが可能な場合）","必要的共同訴訟（40条・41条）","独立当事者参加（47条）・訴訟引受（50条）","口頭弁論の分離（152条）","一部判決（243条）"],"articles":[40,41,47,50,152,243],"hanrei":[],"classified":true},{"id":"dos-2023-zenki","univ":"同志社","year":2023,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2023_mondai_minjisosyouho.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2023_kaisetsu_minjisosyo.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2023_kaitou_minjisosyouho.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["証拠/証明責任","審理/口頭弁論・弁論主義","訴えの提起/処分権主義","訴えの提起/訴訟物・訴えの利益"],"topics":["証明責任の分配（法律要件分類説）","弁論主義","処分権主義（246条）","確認の利益"],"articles":[246],"hanrei":[],"classified":true},{"id":"dos-2023-koki","univ":"同志社","year":2023,"term":"後期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2023koki_mondai_minjisosyouho.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2023koki_kaisetsu_minjisosyo.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2023koki_kaitou_minjisosyouho.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["訴えの提起/訴訟物・訴えの利益","当事者/当事者適格・訴訟担当","複数請求・多数当事者/共同訴訟"],"topics":["確認の訴えの利益（対象選択・方法選択・即時確定）","遺言無効確認の訴えと過去の法律行為の確認","遺産確認の訴えの適法性","利害関係人の一部を欠く訴えと当事者適格（固有必要的共同訴訟）"],"articles":[],"hanrei":["最判昭和47年2月15日","最判昭和31年10月4日","最判平成11年6月11日","最判昭和61年3月13日"],"classified":true},{"id":"dos-2023-menjo","univ":"同志社","year":2023,"term":"履修免除","course":"履修免除試験","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2023exempt_mondai_minjisosyouho.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2023exempt_kaisetsu_minjisosyouho.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2023exempt_kaitou_minjisosyouho.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["当事者/当事者能力・訴訟能力","訴訟の終了/取下げ・和解・放棄認諾","証拠/証人・当事者尋問・鑑定","上訴・再審/控訴・上告","訴訟の終了/既判力","複数請求・多数当事者/共同訴訟","訴えの提起/訴訟物・訴えの利益"],"topics":["○×形式の基礎知識（追認34条・訴え取下げ擬制263条・証人213条・上告327条・既判力114条）","必要的共同訴訟","一部請求後の残部請求","既判力の時的限界と形成権の行使"],"articles":[34,114,213,263,327],"hanrei":[],"classified":true},{"id":"kei-2023-honshi","univ":"慶應","year":2023,"term":"本試験","course":"法学既修者コース","mondai":"https://www.keio.ac.jp/files/c29c9c76c18ef6686fb519748e73fd23e833b9179a9649d8fba91aaacf8d6052","kaisetsu":"https://www.keio.ac.jp/files/6b9b00553614c4dc9d67c89bda1a2471b9dc876e62c9aa3d112ffb6b8532c5e2","kaitou":null,"kaisetsuLabel":"出題趣旨","kaisetsuNote":"全科目まとめの出題趣旨。民事訴訟法の節を参照","mondaiNote":"合冊の試験問題（商法・民事訴訟法・刑事訴訟法）。民事訴訟法の問題を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":"xfo","kaitou":null},"basis":"解説","units":["証拠/証明責任","上訴・再審/控訴・上告","訴訟の終了/既判力"],"topics":["証明責任と真偽不明の処理","証明責任の分配","控訴の利益","既判力（114条）"],"articles":[114],"hanrei":[],"classified":true},{"id":"dos-2022-zenki","univ":"同志社","year":2022,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2022_mondai_minjisosyouho.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2022_kaisetsu_minjisosyo.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2022_kaitou_minjisosyouho.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["裁判所/管轄・移送","複数請求・多数当事者/訴訟参加・訴訟告知","審理/口頭弁論・弁論主義"],"topics":["事物管轄と土地管轄","普通裁判籍（4条）・特別裁判籍（5条）","補助参加の利益と法律上の利害関係（42条）","異議がない場合の参加の許否（44条）","弁論主義の第1テーゼと過失相殺"],"articles":[4,5,42,44],"hanrei":["最判平成13年1月30日","最判平成14年1月22日","最判昭和41年6月21日","最判昭和43年12月24日"],"classified":true},{"id":"dos-2022-koki","univ":"同志社","year":2022,"term":"後期","course":"法学既修者","mondai":"http://doshisha-law.kir.jp/stg/wp-content/uploads/2022/04/2022_mondai_minjisoshohou2.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2022_kaisetsu_minsohou2.pdf","kaitou":"http://doshisha-law.kir.jp/stg/wp-content/uploads/2022/04/2022_minjisoshout2.pdf","kaisetsuLabel":"解説","embed":{"mondai":false,"kaisetsu":true,"kaitou":false},"embedWhy":{"mondai":"http","kaisetsu":null,"kaitou":"http"},"basis":"解説","units":["審理/口頭弁論・弁論主義","証拠/証明責任","上訴・再審/再審"],"topics":["裁判上の自白の成立要件","「自己に不利益な陳述」の意義（証明責任説・敗訴可能性説）","自白の撤回","再審事由（338条）"],"articles":[338],"hanrei":[],"classified":true},{"id":"dos-2022-menjo","univ":"同志社","year":2022,"term":"履修免除","course":"履修免除試験","mondai":"http://doshisha-law.kir.jp/stg/wp-content/uploads/2022/04/2022_mondai_minjisoshohou3.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2022_kaisetsu_minsohou3.pdf","kaitou":"http://doshisha-law.kir.jp/stg/wp-content/uploads/2022/04/2022_minjisoshout3.pdf","kaisetsuLabel":"解説","embed":{"mondai":false,"kaisetsu":true,"kaitou":false},"embedWhy":{"mondai":"http","kaisetsu":null,"kaitou":"http"},"basis":"解説","units":["裁判所/管轄・移送","当事者/当事者能力・訴訟能力","複数請求・多数当事者/共同訴訟","審理/送達・期日・手続の中断","証拠/証拠総則・自由心証主義","訴訟の終了/既判力"],"topics":["○×形式の基礎知識（併合管轄7条・送達107条・当事者能力28条・訴訟能力31条・34条）","共同訴訟（38条・39条）","自由心証主義（247条）","既判力の主観的範囲（115条）と反射効"],"articles":[4,7,28,31,34,38,39,107,115,247],"hanrei":[],"classified":true},{"id":"kei-2022-honshi","univ":"慶應","year":2022,"term":"本試験","course":"法学既修者コース","mondai":"https://www.keio.ac.jp/files/deb89638c779908330f14e57cac06dff52e30cbafaade6ca6a47d7175bc114bf","kaisetsu":"https://www.keio.ac.jp/files/872119430852e7b5ed47c5e9f58d7230ec6dc480d6843308606a46ea21c5dbd4","kaitou":null,"kaisetsuLabel":"出題趣旨","kaisetsuNote":"全科目まとめの出題趣旨。民事訴訟法の節を参照","mondaiNote":"合冊の試験問題（商法・民事訴訟法・刑事訴訟法）。民事訴訟法の問題を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":"xfo","kaitou":null},"basis":"解説","units":["訴訟の終了/既判力","審理/口頭弁論・弁論主義"],"topics":["既判力と相殺の抗弁（114条1項・2項）","権利自白"],"articles":[114],"hanrei":[],"classified":true},{"id":"dos-2021-zenki","univ":"同志社","year":2021,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2021_mondai_minjisosyouho.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2021_kaisetsu_minjisosyo.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2021_kaitou_minjisosyouho.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["複数請求・多数当事者/請求の併合・訴えの変更・反訴","訴訟の終了/既判力"],"topics":["訴えの変更（143条）","反訴（146条）と「関連する請求」","請求の併合（136条）","既判力の客観的範囲（114条）"],"articles":[114,136,143,146],"hanrei":[],"classified":true},{"id":"dos-2021-koki","univ":"同志社","year":2021,"term":"後期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2021_mondai_minjisoshohou2.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2021_kaisetsu_minsohou2.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2021_minjisoshout2.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["証拠/書証・文書提出命令","訴えの提起/処分権主義","訴えの提起/訴訟物・訴えの利益","訴訟の終了/既判力"],"topics":["文書提出義務（220条）","処分権主義（246条）","将来給付の訴えの利益（135条）","既判力の時的限界（114条）"],"articles":[114,135,220,246],"hanrei":[],"classified":true},{"id":"dos-2021-menjo","univ":"同志社","year":2021,"term":"履修免除","course":"履修免除試験","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2021_mondai_minjisoshohou3.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2021_kaisetsu_minsohou3.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2021_minjisoshout3.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["当事者/当事者適格・訴訟担当","審理/争点整理・攻撃防御方法","証拠/書証・文書提出命令","上訴・再審/控訴・上告","複数請求・多数当事者/訴訟参加・訴訟告知","複数請求・多数当事者/訴訟承継","訴訟の終了/既判力"],"topics":["○×形式の基礎知識（選定当事者30条・弁論準備170条・文書提出命令225条・上告理由312条）","共同訴訟参加（52条）","訴訟引受（50条）と訴訟承継","明文のない主観的追加的併合の可否"],"articles":[30,50,52,114,170,225,312],"hanrei":[],"classified":true},{"id":"kei-2021-honshi","univ":"慶應","year":2021,"term":"本試験","course":"法学既修者コース","mondai":"https://www.keio.ac.jp/files/c66652eede3ec281dd670d09674775015dc2aed139114c39ece56d9a6274c1bb","kaisetsu":"https://www.keio.ac.jp/files/4f12965d32b9f940839fe029e28338874f5608034b292305f4b84d5f932f3e14","kaitou":null,"kaisetsuLabel":"出題趣旨","kaisetsuNote":"全科目まとめの出題趣旨。民事訴訟法の節を参照","mondaiNote":"合冊の試験問題（科目名の記載なし）。民事訴訟法の問題を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":"xfo","kaitou":null},"basis":"解説","units":["訴えの提起/訴訟物・訴えの利益","訴訟の終了/既判力"],"topics":["将来給付の訴えの利益（135条）","一部請求判決確定後の残部請求の可否"],"articles":[135],"hanrei":[],"classified":true},{"id":"kei-2021-tsuishi","univ":"慶應","year":2021,"term":"追試験","course":"法学既修者コース","mondai":"https://www.keio.ac.jp/files/1513234f1c4b1e96b101761b827d106455d4502be7cb5d0a6792f87e7c592767","kaisetsu":"https://www.keio.ac.jp/files/fb768707b81713aa90505d34e378bf515c76c03248cc03a20bb505960e6f9788","kaitou":null,"kaisetsuLabel":"出題趣旨","kaisetsuNote":"全科目まとめの出題趣旨。民事訴訟法の節を参照","mondaiNote":"合冊の試験問題（民事訴訟法・刑事訴訟法）。民事訴訟法の問題を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":"xfo","kaitou":null},"basis":"解説","units":["証拠/証明責任","訴訟の終了/既判力"],"topics":["証明責任の分配基準と効果","請求原因と抗弁の整理","既判力の客体的範囲（114条1項・2項）"],"articles":[114],"hanrei":[],"classified":true},{"id":"dos-2020-zenki","univ":"同志社","year":2020,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2020_mondai_minjisosyouho.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2020_kaisetsu_minjisosyo.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2020_kaitou_minjisosyouho.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["訴えの提起/訴訟物・訴えの利益","訴訟の終了/判決"],"topics":["訴訟物の個数と訴訟物理論","将来給付の訴えの利益（135条）と請求適格","一時金賠償を命ずる判決と定期金賠償（117条）"],"articles":[117,135],"hanrei":["最判昭和56年12月16日","最判昭和61年7月17日"],"classified":true},{"id":"dos-2020-koki","univ":"同志社","year":2020,"term":"後期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2020_mondai_minjisoshohou2.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2020_kaisetsu_minsohou2.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2020_minjisoshout2.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":[],"topics":[],"articles":[],"hanrei":[],"classified":false},{"id":"dos-2020-menjo","univ":"同志社","year":2020,"term":"履修免除","course":"履修免除試験","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2020_mondai_minjisoshohou3.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2020_kaisetsu_minsohou3.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2020_minjisoshout3.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":[],"topics":[],"articles":[],"hanrei":[],"classified":false},{"id":"kei-2020-honshi","univ":"慶應","year":2020,"term":"本試験","course":"法学既修者コース","mondai":"https://www.keio.ac.jp/files/8fb3a7e46a2fbddcc035cbc1c1a4de7fde3e71e6d202a793c85bd980950a6e36","kaisetsu":"https://www.keio.ac.jp/files/c71a6c58a861c139aa6f9540eed0aae237bd68f41f433ad3e0cce51d357e19e3","kaitou":null,"kaisetsuLabel":"出題趣旨","kaisetsuNote":"全科目まとめの出題趣旨。民事訴訟法の節を参照","mondaiNote":"合冊の試験問題（民事訴訟法・刑事訴訟法）。民事訴訟法の問題を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":"xfo","kaitou":null},"basis":"解説","units":["訴訟の終了/既判力","上訴・再審/控訴・上告"],"topics":["既判力の客体的範囲（114条1項）と訴訟物理論","控訴の利益"],"articles":[114],"hanrei":[],"classified":true},{"id":"dos-2019-zenki","univ":"同志社","year":2019,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/mondaiminjisosyouhou.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/kaiminjisosyouhou.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/yoshiminjisosyouhou.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["審理/口頭弁論・弁論主義","当事者/訴訟代理"],"topics":["弁論主義の第1テーゼ","訴訟資料と証拠資料の峻別","弁護士法25条違反の訴訟行為の効力（絶対的無効説・異議説・有効説）"],"articles":[],"hanrei":["最判昭和33年7月8日"],"classified":true},{"id":"dos-2019-koki","univ":"同志社","year":2019,"term":"後期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2019_minjisosyou2.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2020_minjisosyouhouk2.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2019_minjisoshout2.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["裁判所/管轄・移送","訴えの提起/重複訴訟・訴訟係属","審理/争点整理・攻撃防御方法"],"topics":["管轄裁判所（4条・5条）","二重起訴の禁止（142条）","弁論の制限・分離・併合（152条）"],"articles":[4,5,142,152],"hanrei":[],"classified":true},{"id":"dos-2019-menjo","univ":"同志社","year":2019,"term":"履修免除","course":"履修免除試験","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2019_minjisosyou3.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2019_minjisosyouk3.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2019_minjisoshout3.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["証拠/書証・文書提出命令","訴訟の終了/取下げ・和解・放棄認諾","審理/送達・期日・手続の中断","審理/争点整理・攻撃防御方法","当事者/当事者適格・訴訟担当","訴訟の終了/既判力","複数請求・多数当事者/訴訟参加・訴訟告知","当事者/訴訟代理","訴えの提起/訴訟物・訴えの利益"],"topics":["○×形式の基礎知識（訴訟行為の特質・文書提出義務220条・中断124条・弁論準備169条・選定当事者30条・既判力115条・訴訟代理58条）","確認の利益についての判例","訴えの取下げ（262条）と和解（267条）"],"articles":[30,44,58,115,124,169,220,262,267],"hanrei":[],"classified":true},{"id":"kei-2019-honshi","univ":"慶應","year":2019,"term":"本試験","course":"法学既修者コース","mondai":"https://www.keio.ac.jp/files/bbf598ef23041b554951517ca9d22b5e3414abe048690bf0a80eec54c59eca83","kaisetsu":"https://www.keio.ac.jp/files/8f67afa1006f91473cd8e4f952e59f99b7b451703afa4d2d261f04791c8d353b","kaitou":null,"kaisetsuLabel":"出題趣旨","kaisetsuNote":"全科目まとめの出題趣旨。民事訴訟法の節を参照","mondaiNote":"合冊の試験問題（民事訴訟法・刑事訴訟法）。民事訴訟法の問題を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":"xfo","kaitou":null},"basis":"解説","units":["審理/口頭弁論・弁論主義","訴えの提起/訴訟物・訴えの利益"],"topics":["弁論主義の主張原則違反の有無","訴訟物と請求原因の抽出"],"articles":[],"hanrei":[],"classified":true},{"id":"dos-2018-zenki","univ":"同志社","year":2018,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2018_minjisoshouhou.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2018_minjisoshouhou_k.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2018_minjisoshout.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["証拠/書証・文書提出命令","審理/口頭弁論・弁論主義","証拠/証明責任"],"topics":["二段の推定（228条4項）","裁判上の自白の拘束力","証明責任の分配","訴え提起（134条）"],"articles":[134,228],"hanrei":[],"classified":true},{"id":"dos-2018-koki","univ":"同志社","year":2018,"term":"後期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2018_minjisosyou2.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2018_minjisosyouhouk2.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2018_minjisoshout2.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["訴えの提起/訴訟物・訴えの利益","審理/口頭弁論・弁論主義","複数請求・多数当事者/請求の併合・訴えの変更・反訴"],"topics":["訴訟物と請求原因事実","訴えの追加的変更","弁論主義の第2テーゼと裁判上の自白","自白の不可撤回効と撤回要件","権利自白"],"articles":[],"hanrei":[],"classified":true},{"id":"dos-2018-menjo","univ":"同志社","year":2018,"term":"履修免除","course":"履修免除試験","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2018_minjisosyou3.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2018_minjisosyouk3.pdf","kaitou":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaitou/2018_minjisoshout3.pdf","kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":true},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["裁判所/管轄・移送","訴訟の終了/既判力","訴えの提起/重複訴訟・訴訟係属","審理/争点整理・攻撃防御方法","当事者/当事者能力・訴訟能力","訴訟の終了/取下げ・和解・放棄認諾","上訴・再審/控訴・上告","複数請求・多数当事者/共同訴訟"],"topics":["○×形式の基礎知識（管轄4条・5条・11条・12条・14条・18条・26条、担保80条、時機に後れた攻撃防御方法157条、弁論準備170条、取下げ262条、控訴304条）","土地管轄","固有必要的共同訴訟にあたる場合","既判力（114条・115条）と重複訴訟の禁止"],"articles":[4,5,11,12,14,18,26,30,80,114,115,135,157,170,262,304],"hanrei":[],"classified":true},{"id":"kei-2018-honshi","univ":"慶應","year":2018,"term":"本試験","course":"法学既修者コース","mondai":"https://www.keio.ac.jp/files/185853c3564d5c0d740536d33678c3688c08998a31b10b6f85e820ab3405bcbd","kaisetsu":"https://www.keio.ac.jp/files/7342658feab6980cfebfe65de494a43652a77b7472735a2d4dc63681aed08797","kaitou":null,"kaisetsuLabel":"出題趣旨","kaisetsuNote":"全科目まとめの出題趣旨。民事訴訟法の節を参照","mondaiNote":"合冊の試験問題（民事訴訟法・刑事訴訟法）。民事訴訟法の問題を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":"xfo","kaitou":null},"basis":"解説","units":["訴えの提起/訴訟物・訴えの利益","訴訟の終了/既判力"],"topics":["明示的一部請求と残部請求の後訴","将来給付の訴えの利益（135条）"],"articles":[135],"hanrei":["最判昭和32年6月7日","最判昭和37年8月10日","最判平成10年6月12日"],"classified":true},{"id":"dos-2017-zenki","univ":"同志社","year":2017,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2017_minjisosyou.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2017_minjisosyouk.pdf","kaitou":null,"kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":false},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["訴えの提起/処分権主義","審理/口頭弁論・弁論主義","訴訟の終了/既判力"],"topics":["申立事項と判決事項（246条）","明示的一部請求と残部請求","過失相殺と弁論主義の第1テーゼ","訴訟資料と証拠資料の峻別","一部請求と過失相殺（外側説）"],"articles":[246],"hanrei":["最判昭和48年4月5日","最判平成6年11月22日"],"classified":true},{"id":"dos-2017-koki","univ":"同志社","year":2017,"term":"後期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2017_minjisosyou2.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2017_minjisosyouk2.pdf","kaitou":null,"kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":false},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["当事者/当事者適格・訴訟担当","訴訟の終了/既判力","訴えの提起/訴訟物・訴えの利益"],"topics":["債権者代位訴訟における当事者適格","法定訴訟担当","被担当者への既判力の拡張（115条1項2号）","訴訟要件と本案の審理順序"],"articles":[115],"hanrei":[],"classified":true},{"id":"dos-2017-menjo","univ":"同志社","year":2017,"term":"履修免除","course":"履修免除試験","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2017_minjisosyou3.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2017_minjisosyouk3.pdf","kaitou":null,"kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":false},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["当事者/当事者能力・訴訟能力","審理/口頭弁論・弁論主義","訴訟の終了/判決","上訴・再審/控訴・上告","複数請求・多数当事者/訴訟参加・訴訟告知","当事者/当事者適格・訴訟担当"],"topics":["○×形式の基礎知識（訴訟能力31条・147条・直接主義249条・控訴286条・当事者能力29条）","主要事実・間接事実・補助事実の区別","訴訟参加の形態","民法上の組合の訴訟上の取扱い"],"articles":[29,31,147,249,286],"hanrei":[],"classified":true},{"id":"kei-2017-honshi","univ":"慶應","year":2017,"term":"本試験","course":"法学既修者コース","mondai":"https://www.keio.ac.jp/files/0f5a1dd7cb9badff77089abf6cbf281fea616a8eb705633051aa107f8f06b046","kaisetsu":null,"kaitou":null,"kaisetsuLabel":"出題趣旨","kaisetsuNote":"全科目まとめの出題趣旨。民事訴訟法の節を参照","mondaiNote":"合冊の試験問題（民事訴訟法・刑事訴訟法）。民事訴訟法の問題を参照","embed":{"mondai":false,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":"xfo","kaisetsu":null,"kaitou":null},"basis":"問題","units":["訴えの提起/処分権主義","複数請求・多数当事者/請求の併合・訴えの変更・反訴"],"topics":["立退料の引換給付判決と処分権主義（246条）","申立額を下回る立退料を命ずる判決の可否","建物が建て替えられた場合にとりうる訴訟法上の手段（訴えの変更143条）"],"articles":[143,246],"hanrei":[],"classified":true},{"id":"dos-2016-zenki","univ":"同志社","year":2016,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2016_minjisosyou.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2016_minjisosyouk.pdf","kaitou":null,"kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":false},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["訴訟の終了/既判力","訴えの提起/重複訴訟・訴訟係属","訴えの提起/訴訟物・訴えの利益"],"topics":["確定判決後の同一債権の再訴と既判力（114条1項）","債務名義がある場合の訴えの利益","重複起訴の禁止（142条）","別訴と反訴の違い","相殺の抗弁と重複起訴（114条2項）"],"articles":[114,142],"hanrei":["最判平成3年12月17日"],"classified":true},{"id":"dos-2016-koki","univ":"同志社","year":2016,"term":"後期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2016_minjisosyou2.pdf","kaisetsu":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/kaisetsu/2016_minjisosyouk2.pdf","kaitou":null,"kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":true,"kaitou":false},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"解説","units":["訴訟の終了/既判力","複数請求・多数当事者/訴訟参加・訴訟告知"],"topics":["既判力の客観的範囲（114条1項）","基準時後の形成権の行使","訴訟告知と参加的効力（53条4項・46条）","口頭弁論終結後の承継人（115条1項3号）"],"articles":[46,53,114,115],"hanrei":[],"classified":true},{"id":"dos-2010-zenki","univ":"同志社","year":2010,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2010_minjisosyou.pdf","kaisetsu":null,"kaitou":null,"kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"問題","units":[],"topics":[],"articles":[],"hanrei":[],"classified":false},{"id":"dos-2009-zenki","univ":"同志社","year":2009,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2009_minjisosyou.pdf","kaisetsu":null,"kaitou":null,"kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"問題","units":[],"topics":[],"articles":[],"hanrei":[],"classified":false},{"id":"dos-2008-zenki","univ":"同志社","year":2008,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2008_minjisosyou.pdf","kaisetsu":null,"kaitou":null,"kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"問題","units":[],"topics":[],"articles":[],"hanrei":[],"classified":false},{"id":"dos-2007-zenki","univ":"同志社","year":2007,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2007_minjisosyou.pdf","kaisetsu":null,"kaitou":null,"kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"問題","units":[],"topics":[],"articles":[],"hanrei":[],"classified":false},{"id":"dos-2006-zenki","univ":"同志社","year":2006,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2006_minjisosyou.pdf","kaisetsu":null,"kaitou":null,"kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"問題","units":[],"topics":[],"articles":[],"hanrei":[],"classified":false},{"id":"dos-2005-zenki","univ":"同志社","year":2005,"term":"前期","course":"法学既修者","mondai":"https://law-school.doshisha.ac.jp/wp-content/themes/du_theme/archive/02_entrance_ex/pdf/questions/2005_minjisosyou.pdf","kaisetsu":null,"kaitou":null,"kaisetsuLabel":"解説","embed":{"mondai":true,"kaisetsu":false,"kaitou":false},"embedWhy":{"mondai":null,"kaisetsu":null,"kaitou":null},"basis":"問題","units":[],"topics":[],"articles":[],"hanrei":[],"classified":false}]}</script>
+<script>
+(function(){
+"use strict";
+
+const UNIV_PAGE = {
+  "同志社":"https://law-school.doshisha.ac.jp/entrance_ex/question/",
+  "立命館":"https://www.ritsumei.ac.jp/lawschool/admission/past.html/",
+  "関学":"https://www.kwansei.ac.jp/lawschool/admissions/kakomon/",
+  "慶應":"https://www.ls.keio.ac.jp/nyushi/examination.html",
+  "中央":"https://www.chuo-u.ac.jp/academics/pro_graduateschool/law/orientation/selection/past/"
+};
+const UNIV_FULL = {
+  "同志社":"同志社大学法科大学院",
+  "立命館":"立命館大学法科大学院",
+  "関学":"関西学院大学法科大学院",
+  "慶應":"慶應義塾大学法科大学院",
+  "中央":"中央大学法科大学院"
+};
+const UNIV_LIST = ["同志社","慶應","中央"];
+const LS = "minso-kakomon:v1";
+const ROPPO = "https://natsunooda.github.io/roppo-viewer/#minso/";   // 六法ビューア（同じ作者の別アプリ）
+
+let DATA = {items:[], taxonomy:[]};
+let state = {unit:null, univ:new Set(), q:"", sel:null, pdf:"mondai"};
+let done = {};
+
+/* ---------- 保存（この端末のブラウザにだけ残る） ---------- */
+function loadStore(){
+  try{
+    const s = JSON.parse(localStorage.getItem(LS) || "{}");
+    done = s.done || {};
+    if(s.unit !== undefined) state.unit = s.unit;
+    if(Array.isArray(s.univ)) state.univ = new Set(s.univ);
+  }catch(e){ done = {}; }
+}
+function saveStore(){
+  try{
+    localStorage.setItem(LS, JSON.stringify({
+      done, unit:state.unit, univ:[...state.univ]
+    }));
+  }catch(e){}
+}
+
+/* ---------- 絞り込み ---------- */
+function matches(it){
+  if(state.univ.size && !state.univ.has(it.univ)) return false;
+  if(state.unit === "__uncls__"){ if(it.classified) return false; }
+  else if(state.unit){
+    const hit = it.units.some(u => u === state.unit || u.split("/")[0] === state.unit);
+    if(!hit) return false;
+  }
+  const q = state.q.trim();
+  if(q){
+    const num = /^\d{1,4}$/.test(q);
+    const hay = [it.univ, UNIV_FULL[it.univ], it.year + "年度", it.term, it.course,
+                 ...it.units, ...it.topics, ...it.hanrei].join(" ");
+    if(num){
+      if(!it.articles.includes(+q) && hay.indexOf(q) < 0) return false;
+    }else if(hay.indexOf(q) < 0) return false;
+  }
+  return true;
+}
+const filtered = () => DATA.items.filter(matches);
+
+/* ---------- 単元ツリー ---------- */
+function renderUnits(){
+  const nav = document.getElementById("units");
+  const vis = DATA.items.filter(it => {
+    if(state.univ.size && !state.univ.has(it.univ)) return false;
+    return true;
+  });
+  const cnt = {};
+  let uncls = 0;
+  for(const it of vis){
+    if(!it.classified){ uncls++; continue; }
+    for(const u of it.units){
+      cnt[u] = (cnt[u]||0)+1;
+      const t = u.split("/")[0];
+      cnt[t] = (cnt[t]||0)+1;
+    }
+  }
+  const parts = [];
+  parts.push(btnHTML(null, "すべての単元", vis.length, state.unit===null, "top"));
+  for(const g of DATA.taxonomy){
+    const n = cnt[g.name]||0;
+    parts.push('<div class="grp">');
+    if(g.subs.length){
+      parts.push('<h3>'+esc(g.name)+'</h3>');
+      for(const s of g.subs){
+        parts.push(btnHTML(s.key, s.name, cnt[s.key]||0, state.unit===s.key, ""));
+      }
+    }else{
+      parts.push(btnHTML(g.name, g.name, n, state.unit===g.name, "top"));
+    }
+    parts.push('</div>');
+  }
+  if(uncls){
+    parts.push('<div class="grp"><h3>そのほか</h3>');
+    parts.push(btnHTML("__uncls__", "単元未判定", uncls, state.unit==="__uncls__", ""));
+    parts.push('</div>');
+  }
+  nav.innerHTML = parts.join("");
+  nav.querySelectorAll(".unit").forEach(b => b.onclick = () => {
+    state.unit = b.dataset.u === "" ? null : b.dataset.u;
+    document.body.classList.remove("nav");
+    saveStore(); renderUnits(); renderList();
+  });
+}
+function btnHTML(key, label, n, on, cls){
+  return '<button class="unit '+cls+(on?" on":"")+(n?"":" zero")+'" data-u="'+esc(key===null?"":key)+'">'
+       + '<span>'+esc(label)+'</span><span class="n">'+n+'</span></button>';
+}
+
+/* ---------- 一覧 ---------- */
+function renderList(){
+  const box = document.getElementById("list");
+  const items = filtered();
+  document.getElementById("count").textContent = items.length + " 件 / 全 " + DATA.items.length + " 件";
+  if(!items.length){
+    box.innerHTML = '<p class="empty">該当する過去問がありません。<br>絞り込みや検索語を見直してください。</p>';
+    return;
+  }
+  box.innerHTML = items.map(it => {
+    const tp = it.classified ? it.topics.slice(0,3).join("／") : "解説が公開されていないため単元未判定";
+    return '<div class="card'+(state.sel===it.id?" on":"")+'" data-id="'+it.id+'">'
+      + '<div class="ttl">'+esc(it.univ)+' '+it.year+'年度 '+esc(it.term)
+      + (done[it.id]?' <span class="badge done">解いた</span>':'')
+      + '</div><div class="tp">'+esc(tp)+'</div></div>';
+  }).join("");
+  box.querySelectorAll(".card").forEach(c => c.onclick = () => select(c.dataset.id));
+}
+
+/* ---------- 詳細 ---------- */
+function select(id){
+  state.sel = id; state.pdf = "mondai";
+  document.body.classList.add("open");
+  renderList(); renderDetail();
+  document.getElementById("detail").scrollTop = 0;
+}
+function renderDetail(){
+  const box = document.getElementById("detail");
+  const it = DATA.items.find(x => x.id === state.sel);
+  if(!it){
+    box.innerHTML = aboutHTML();
+    const b = document.getElementById("back");
+    if(b) b.onclick = () => document.body.classList.remove("open");
+    return;
+  }
+  const kaisetsuLabel = it.kaisetsuLabel || "解説";
+  const p = [];
+  p.push('<div class="row"><button class="btn backbtn" id="back">← 一覧</button>'
+    + '<label class="done"><input type="checkbox" id="doneChk"'+(done[it.id]?" checked":"")+'> 解いた</label></div>');
+  p.push('<h2>'+esc(it.univ)+' '+it.year+'年度 '+esc(it.term)
+    + '</h2>');
+  p.push('<div class="meta">'+esc(UNIV_FULL[it.univ])+'・'+esc(it.course)
+    + ' ／ <a href="'+esc(UNIV_PAGE[it.univ])+'" target="_blank" rel="noopener">大学の公開ページ</a></div>');
+
+  // 開くボタン
+  p.push('<div class="row">');
+  if(it.combined){
+    p.push(link(it.mondai, "問題・解説を開く", true));
+  }else{
+    p.push(link(it.mondai, "問題を開く", true));
+    p.push(link(it.kaisetsu, kaisetsuLabel + "を開く", false));
+  }
+  if(it.kaitou) p.push(link(it.kaitou, "解答用紙", false));
+  p.push('</div>');
+
+  if(it.combined){
+    p.push('<p class="note">この PDF には、問題と解説（解答例・出題の意図・講評）の両方が入っています。</p>');
+  }else if(it.mondaiNote){
+    p.push('<p class="note">問題 PDF は'+esc(it.mondaiNote)+'。</p>');
+  }
+  if(it.kaisetsu && it.kaisetsuNote) p.push('<p class="note">'+esc(kaisetsuLabel)+' PDF は'+esc(it.kaisetsuNote)+'。</p>');
+  if(!it.kaisetsu && !it.combined) p.push('<p class="note">この回は'+esc(kaisetsuLabel)+'が公開されていません。</p>');
+
+  if(it.classified){
+    p.push('<section class="blk"><h4>単元</h4><div class="tagrow">'
+      + it.units.map(u => '<button class="tag" data-u="'+esc(u)+'">'+esc(u.replace("/","／"))+'</button>').join("")
+      + '</div></section>');
+    p.push('<section class="blk"><h4>論点</h4><ul class="topics">'
+      + it.topics.map(t => '<li>'+esc(t)+'</li>').join("") + '</ul></section>');
+    if(it.articles.length){
+      p.push('<section class="blk"><h4>引用条文（民事訴訟法）</h4><div class="tagrow">'
+        + it.articles.map(a => '<a class="tag" target="_blank" rel="noopener" href="'
+            + ROPPO + encodeURIComponent(String(a)) + '" title="六法ビューアで民事訴訟法'+a+'条を開く">'
+            + a + '条 ↗</a>').join("")
+        + '</div><p class="note">条文をおすと六法ビューアで本文が読めます。'
+        + '上の検索欄に条文番号を入れると、その条文が出た回だけが並びます。</p></section>');
+    }
+    if(it.hanrei.length){
+      p.push('<section class="blk"><h4>解説が挙げる判例</h4><div class="tagrow">'
+        + it.hanrei.map(h => '<span class="tag plain">'+esc(h)+'</span>').join("")
+        + '</div></section>');
+    }
+    if(it.basis === '問題'){
+      p.push('<p class="note">この回は'+esc(kaisetsuLabel)+'が公開されていないため、'
+        + '単元・論点・条文は<b>問題文から読み取って</b>整理したものです。</p>');
+    }else{
+      const srcName = it.combined ? '解説' : kaisetsuLabel;
+      p.push('<p class="note">単元・論点・条文は、大学が公開している'+esc(srcName)
+        + 'の本文から拾って整理したものです。本文は上のボタンから大学の PDF を開いてください。</p>');
+    }
+  }else{
+    p.push('<p class="note">この回は'+esc(kaisetsuLabel)+'が公開されておらず、問題 PDF も文字情報のない画像のため、'
+      + '単元を判定していません。問題は上のボタンから開けます。</p>');
+  }
+
+  // PDF プレビュー（埋め込めるものだけ表示し、残りは理由を書く）
+  const all = [["mondai", it.combined ? "問題・解説" : "問題"],
+               ["kaisetsu", kaisetsuLabel], ["kaitou","解答用紙"]]
+    .filter(([k]) => it[k]);
+  const tabs = all.filter(([k]) => it.embed[k]);
+  if(all.length){
+    p.push('<section class="blk"><h4>そのまま読む</h4>');
+    if(tabs.length){
+      p.push('<div id="tabsPdf" class="chips">'
+        + tabs.map(([k,l]) => '<button data-pdf="'+k+'"'+(state.pdf===k?' class="on"':'')+'>'+esc(l)+'</button>').join("")
+        + '</div>');
+      const cur = tabs.some(([k]) => k === state.pdf) ? state.pdf : tabs[0][0];
+      p.push('<iframe id="viewer" src="'+esc(it[cur])+'" title="PDF"></iframe>');
+    }
+    const blocked = all.filter(([k]) => !it.embed[k]);
+    if(blocked.length){
+      const reasons = {
+        xfo: esc(UNIV_FULL[it.univ]) + 'のサーバーがページ内への埋め込みを許可していないため',
+        http: '大学がこの PDF を http（暗号化なし）で公開しており、このページには読み込めないため',
+        unreachable: '大学のサーバーに届かなかったため'
+      };
+      const why = reasons[it.embedWhy[blocked[0][0]]] || '大学側の設定のため';
+      p.push('<p class="note">' + blocked.map(([, l]) => esc(l)).join('・')
+        + ' はここには表示できません（' + why + '）。上のボタンから新しいタブで開いてください。</p>');
+    }
+    p.push('</section>');
+  }
+
+  box.innerHTML = p.join("");
+  const back = document.getElementById("back");
+  if(back) back.onclick = () => document.body.classList.remove("open");
+  const chk = document.getElementById("doneChk");
+  if(chk) chk.onchange = () => {
+    if(chk.checked) done[it.id] = 1; else delete done[it.id];
+    saveStore(); renderList();
+  };
+  box.querySelectorAll(".tag[data-u]").forEach(b => b.onclick = () => {
+    state.unit = b.dataset.u; state.q = ""; document.getElementById("q").value = "";
+    document.body.classList.remove("open");
+    saveStore(); renderUnits(); renderList();
+  });
+  box.querySelectorAll("#tabsPdf button").forEach(b => b.onclick = () => {
+    state.pdf = b.dataset.pdf; renderDetail();
+  });
+}
+function aboutHTML(){
+  const n = DATA.items.length, c = DATA.items.filter(i => i.classified).length;
+  return '<section class="blk about">'
+    + '<div class="row"><button class="btn backbtn" id="back">← 一覧</button></div>'
+    + '<h2 style="margin-bottom:10px">民事訴訟法過去問帳</h2>'
+    + '<p>法科大学院が公開している<b>既修者入試（民事訴訟法）の過去問</b>を、民訴の単元ごとに引けるようにした索引です。'
+    + '左の単元をおすと、その単元が出題された回だけが並びます。</p>'
+    + '<h4 style="margin-top:18px">引き方</h4>'
+    + '<ul class="topics">'
+    + '<li><b>単元から</b> — 左の一覧（裁判所・当事者・訴えの提起・審理・証拠・訴訟の終了・複数請求・上訴・特別手続）</li>'
+    + '<li><b>条文から</b> — 上の検索欄に <code>114</code> のように条番号を入れる</li>'
+    + '<li><b>論点・判例から</b> — 「既判力」「最判平成3年12月17日」などで検索</li>'
+    + '</ul>'
+    + '<h4 style="margin-top:18px">収録</h4>'
+    + '<p>' + UNIV_LIST.filter(u => DATA.items.some(i => i.univ === u)).map(u =>
+        '<a href="'+esc(UNIV_PAGE[u])+'" target="_blank" rel="noopener">'+esc(UNIV_FULL[u])+'</a>').join("・")
+    + ' の計 ' + n + ' 回（2005〜2027年度）。うち ' + c + ' 回に単元・論点・条文・判例をつけています。</p>'
+    + '<p class="note">問題・解説の PDF は、このサイトには置いていません。'
+    + 'ボタンをおすと各大学の公式ページの PDF をそのまま開きます。'
+    + '単元・論点の整理は、大学が公開している解説・入試講評・出題趣旨の本文にもとづく私的なもので、大学の公式見解ではありません。</p>'
+    + '</section>';
+}
+function link(url, label, primary){
+  if(!url) return '<span class="btn" aria-disabled="true">'+esc(label)+'</span>';
+  return '<a class="btn'+(primary?" primary":"")+'" href="'+esc(url)+'" target="_blank" rel="noopener">'
+    + esc(label)+' ↗</a>';
+}
+
+/* ---------- 画面上部の絞り込み ---------- */
+function renderChips(){
+  const u = document.getElementById("univChips");
+  u.innerHTML = UNIV_LIST.filter(n => DATA.items.some(i => i.univ === n)).map(n =>
+    '<button data-n="'+n+'"'+(state.univ.has(n)?' class="on"':'')+'>'+n+'</button>').join("");
+  u.querySelectorAll("button").forEach(b => b.onclick = () => {
+    const n = b.dataset.n;
+    if(state.univ.has(n)) state.univ.delete(n); else state.univ.add(n);
+    saveStore(); renderChips(); renderUnits(); renderList();
+  });
+}
+
+/* ---------- 起動 ---------- */
+function esc(s){
+  return String(s==null?"":s).replace(/[&<>"']/g, c =>
+    ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function boot(d){
+  DATA = d;
+  for(const it of DATA.items){
+    it.units = it.units || []; it.topics = it.topics || [];
+    it.articles = it.articles || []; it.hanrei = it.hanrei || [];
+    // 埋め込み可否は tools/fetch_sources.py が実際のヘッダーを見て決め、data に入れてある
+    it.embed = it.embed || {};
+    it.embedWhy = it.embedWhy || {};
+  }
+  loadStore();
+  if(state.unit && state.unit !== "__uncls__"){
+    const keys = new Set();
+    for(const g of DATA.taxonomy){ keys.add(g.name); for(const s of g.subs) keys.add(s.key); }
+    if(!keys.has(state.unit)) state.unit = null;
+  }
+  renderChips(); renderUnits(); renderList(); renderDetail();
+  document.getElementById("q").oninput = e => {
+    state.q = e.target.value; renderList();
+  };
+  document.getElementById("aboutBtn").onclick = () => {
+    state.sel = null; document.body.classList.add("open");
+    renderList(); renderDetail(); document.getElementById("detail").scrollTop = 0;
+  };
+  document.getElementById("navbtn").onclick = () => document.body.classList.toggle("nav");
+  document.getElementById("scrim").onclick = () => document.body.classList.remove("nav");
+}
+
+const inline = JSON.parse(document.getElementById("kakomon-data").textContent);
+if(inline.items && inline.items.length){
+  boot(inline);
+}else{
+  fetch("data/kakomon.json").then(r => r.json()).then(boot).catch(() => {
+    document.getElementById("list").innerHTML =
+      '<p class="empty">データを読み込めませんでした。<br>'
+      + 'リポジトリ直下の <code>開く.command</code> から起動してください。</p>';
+  });
+}
+})();
+</script>
+</body>
+</html>
