@@ -51,7 +51,8 @@ def main():
         for u in it['units']:
             counts[u] = counts.get(u, 0) + 1
             top = u.split('/')[0]
-            counts[top] = counts.get(top, 0) + 1
+            if top != u:          # 小分類を持たない大分類（例: 親族）は二重に数えない
+                counts[top] = counts.get(top, 0) + 1
     taxonomy = []
     for top, subs in C.TAXONOMY:
         taxonomy.append({

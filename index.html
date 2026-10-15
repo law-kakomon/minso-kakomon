@@ -260,11 +260,12 @@ function matches(it){
   }
   const q = state.q.trim();
   if(q){
-    const num = /^\d{1,4}$/.test(q);
+    const q2 = q.replace(/条$/, "");     // 「709条」と入れても引けるように
+    const num = /^\d{1,4}$/.test(q2);
     const hay = [it.univ, UNIV_FULL[it.univ], it.year + "年度", it.term, it.course,
                  ...it.units, ...it.topics, ...it.hanrei].join(" ");
     if(num){
-      if(!it.articles.includes(+q) && hay.indexOf(q) < 0) return false;
+      if(!it.articles.includes(+q2) && hay.indexOf(q2) < 0) return false;
     }else if(hay.indexOf(q) < 0) return false;
   }
   return true;
@@ -285,7 +286,7 @@ function renderUnits(){
     for(const u of it.units){
       cnt[u] = (cnt[u]||0)+1;
       const t = u.split("/")[0];
-      cnt[t] = (cnt[t]||0)+1;
+      if(t !== u) cnt[t] = (cnt[t]||0)+1;   // 小分類を持たない大分類を二重に数えない
     }
   }
   const parts = [];
@@ -330,7 +331,7 @@ function renderList(){
     return;
   }
   box.innerHTML = items.map(it => {
-    const tp = it.classified ? it.topics.slice(0,3).join("／") : "解説が公開されていないため単元未判定";
+    const tp = it.classified ? it.topics.slice(0,3).join("／") : "PDF が画像のため単元未判定";
     return '<div class="card'+(state.sel===it.id?" on":"")+'" data-id="'+it.id+'">'
       + '<div class="ttl">'+esc(it.univ)+' '+it.year+'年度 '+esc(it.term)
       + (done[it.id]?' <span class="badge done">解いた</span>':'')
@@ -411,8 +412,11 @@ function renderDetail(){
         + 'の本文から拾って整理したものです。本文は上のボタンから大学の PDF を開いてください。</p>');
     }
   }else{
-    p.push('<p class="note">この回は'+esc(kaisetsuLabel)+'が公開されておらず、問題 PDF も文字情報のない画像のため、'
-      + '単元を判定していません。問題は上のボタンから開けます。</p>');
+    p.push('<p class="note">'
+      + (it.kaisetsu || it.combined
+          ? 'この回は'+esc(kaisetsuLabel)+'も問題も文字情報のない画像 PDF のため、'
+          : 'この回は'+esc(kaisetsuLabel)+'が公開されておらず、問題 PDF も文字情報のない画像のため、')
+      + '単元を判定していません。PDF は上のボタンから開けます。</p>');
   }
 
   // PDF プレビュー（埋め込めるものだけ表示し、残りは理由を書く）

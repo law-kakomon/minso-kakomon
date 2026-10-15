@@ -231,6 +231,16 @@ def chuo(h):
     return items
 
 
+def tidy_urls(items):
+    """URL から空白を落とす。同志社のページは href の中で改行していることがあり
+    （憲法の転入学の行など）、そのまま拾うと URL に \r\n が入ってしまう。"""
+    for it in items:
+        for k in ('mondai', 'kaisetsu', 'kaitou'):
+            if it.get(k):
+                it[k] = re.sub(r'\s+', '', it[k])
+    return items
+
+
 def host_embed_check(items):
     """各ホストが PDF の iframe 埋め込みを許すかを実際のヘッダーで調べる。"""
     sample = {}
@@ -264,6 +274,7 @@ def main():
     items += kwansei(get(PAGES['関学']))
     items += keio(get(PAGES['慶應']))
     items += chuo(get(PAGES['中央']))
+    tidy_urls(items)
     old = {}
     if OUT.exists():
         old = {x['id']: x for x in json.load(open(OUT, encoding='utf-8'))['items']}

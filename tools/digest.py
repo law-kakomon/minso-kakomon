@@ -143,8 +143,41 @@ def articles(t):
     return out
 
 
-HANREI = re.compile(r'(最大判|最大決|最判|最決|大判|大連判|大決|高判|高決)\s*'
-                    r'((?:明治|大正|昭和|平成|令和)?\s*(?:\d{1,2}|元)\s*年\s*\d{1,2}\s*月\s*\d{1,2}\s*日)')
+ERA = {'明': '明治', '大': '大正', '昭': '昭和', '平': '平成', '令': '令和',
+       '明治': '明治', '大正': '大正', '昭和': '昭和', '平成': '平成', '令和': '令和'}
+# 「最二小判」のような小法廷の書き方もある（「最判」にそろえる）
+_COURT = (r'最大判|最大決|最[一二三]小判|最[一二三]小決|最判|最決|'
+          r'大連判|大判|大決|高判|高決|地判|地決')
+_SHONO = {'判': '最判', '決': '最決'}
+# 「最判平成18年11月7日」と「最大判平 29・3・15」の両方の書き方を拾う
+HANREI_A = re.compile(r'(' + _COURT + r')\s*((?:明治|大正|昭和|平成|令和))?\s*(\d{1,2}|元)\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日')
+HANREI_B = re.compile(r'(' + _COURT + r')\s*(明治|大正|昭和|平成|令和|明|大|昭|平|令)\s*(\d{1,2}|元)\s*[・.]\s*(\d{1,2})\s*[・.]\s*(\d{1,2})')
+
+
+def hanrei(t):
+    """判例の表記を「最決昭和59年2月29日」の形にそろえて並べる。
+
+    空白を落としてから拾う。「(最/大判昭和 45・6・24」のように裁判所名が行を
+    またぐことがあり、そのままだと「最大判」を「大判」と読み違える。"""
+    t = re.sub(r'\s+', '', t)
+    out, last_era = [], None
+    for m in sorted(list(HANREI_A.finditer(t)) + list(HANREI_B.finditer(t)),
+                    key=lambda m: m.start()):
+        court, era, y, mo, d = m.groups()
+        era = ERA.get(era) if era else last_era
+        if not era:
+            continue
+        last_era = era
+        if re.fullmatch(r'最[一二三]小[判決]', court):
+            court = _SHONO[court[-1]]
+        if y == '1':
+            y = '元'          # 判例は「平成元年」と引くのが通例。検索でも揃える
+        h = f'{court}{era}{y}年{int(mo)}月{int(d)}日'
+        if h not in out:
+            out.append(h)
+    return out
+
+
 CUE = re.compile(r'[^。\n]{6,170}?(?:問題となる|問題である|が問われ|を問うもの|を問う問題|問うている|'
                  r'出題意図|出題趣旨|検討を求め|論ずべき|論じる必要|理解を問う|ポイントとなる|'
                  r'が争点|答えさせる|求められる)[^。\n]{0,60}。')
@@ -173,10 +206,7 @@ def main():
             continue
         sec = section(t, it['univ'])
         arts = articles(sec)
-        han, cues = [], []
-        for m in HANREI.finditer(sec):
-            h = re.sub(r'\s+', '', m.group(0))
-            if h not in han: han.append(h)
+        han, cues = hanrei(sec), []
         for m in CUE.finditer(sec):
             c = re.sub(r'\s+', '', m.group(0))
             if c not in cues: cues.append(c)
