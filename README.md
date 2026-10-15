@@ -51,7 +51,7 @@ python3 tools/build_data.py
 
 - [民法過去問帳](https://law-kakomon.github.io/minpo-kakomon/)
 - [会社法過去問帳](https://law-kakomon.github.io/kaisha-kakomon/)
+- [憲法過去問帳](https://law-kakomon.github.io/kenpo-kakomon/)
 - [行政法過去問帳](https://law-kakomon.github.io/gyosei-kakomon/)
 - [刑法過去問帳](https://law-kakomon.github.io/keiho-kakomon/)
 - [刑事訴訟法過去問帳](https://law-kakomon.github.io/keiso-kakomon/)
-- [憲法過去問帳](https://law-kakomon.github.io/kenpo-kakomon/)
